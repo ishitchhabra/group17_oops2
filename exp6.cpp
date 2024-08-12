@@ -95,3 +95,23 @@ public:
         cout << day << "/" << month << "/" << year << endl;
     }
 };
+
+int main() {
+    Date dt(15, 8, 2024);  
+    dt.print();            
+
+    Date dt2 = dt + 10;    
+    dt2.print();           
+
+    ++dt2;                 
+    dt2.print();           
+
+    if (dt < dt2) {
+        cout << "dt is earlier than dt2" << endl;
+    }
+
+    int daysElapsed = dt;  // Date to int
+    cout << "Days elapsed in the year: " << daysElapsed << endl;  // Output: Days elapsed in the year: 228
+
+    return 0;
+}
