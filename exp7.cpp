@@ -26,3 +26,33 @@ void inputBookDetails(Book& book) {
     cout << "Enter number of pages: ";
     cin >> book.no_of_pages;
     cin.ignore(); 
+  cout << "Enter publisher: ";
+    getline(cin, book.publisher);
+
+    cout << "Enter year of publishing: ";
+    cin >> book.year_of_publishing;
+}
+
+void outputBookDetails(const Book& book) {
+    cout << book.book_id << ","
+              << book.author_name << ","
+              << book.price << ","
+              << book.no_of_pages << ","
+              << book.publisher << ","
+              << book.year_of_publishing << std::endl;
+}
+
+// to sort books by author name
+void sortBooksByAuthor(Book books[], int n) {
+    for (int i = 0; i < n - 1; ++i) {
+        for (int j = 0; j < n - i - 1; ++j) {
+            if (books[j].author_name > books[j + 1].author_name) {
+                // Swap the books
+                Book temp = books[j];
+                books[j] = books[j + 1];
+                books[j + 1] = temp;
+            }
+        }
+    }
+}
+
