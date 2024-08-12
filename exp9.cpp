@@ -17,4 +17,11 @@ public:
         return largest;
     }
 };
+int main() {
+    int a, b, c;
+    cout << "Enter three integers: ";
+    cin >> a >> b >> c;
 
+    LargestFinder<int> intFinder;
+    cout << "Largest of " << a << ", " << b << ", " << c << " (int): " 
+         << intFinder.findLargest(a, b, c) << endl;
