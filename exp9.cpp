@@ -25,3 +25,22 @@ int main() {
     LargestFinder<int> intFinder;
     cout << "Largest of " << a << ", " << b << ", " << c << " (int): " 
          << intFinder.findLargest(a, b, c) << endl;
+
+    float x, y, z;
+    cout << "Enter three floating-point numbers: ";
+    cin >> x >> y >> z;
+
+    LargestFinder<float> floatFinder;
+    cout << "Largest of " << x << ", " << y << ", " << z << " (float): " 
+         << floatFinder.findLargest(x, y, z) << endl;
+
+    double p, q, r;
+    cout << "Enter three double-precision numbers: ";
+    cin >> p >> q >> r;
+
+    LargestFinder<double> doubleFinder;
+    cout << "Largest of " << p << ", " << q << ", " << r << " (double): " 
+         << doubleFinder.findLargest(p, q, r) << endl;
+
+    return 0;
+}
