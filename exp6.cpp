@@ -53,3 +53,45 @@ public:
     bool operator!=(const Date& other) const {
         return !(*this == other);
     }
+
+    Date& operator++() {
+        day++;
+        if (day > daysInMonth(month, year)) {
+            day = 1;
+            month++;
+            if (month > 12) {
+                month = 1;
+                year++;
+            }
+        }
+        return *this;
+    }
+
+    Date operator+(int days) const {
+        Date newDate = *this;
+        newDate.day += days;
+
+        while (newDate.day > newDate.daysInMonth(newDate.month, newDate.year)) {
+            newDate.day -= newDate.daysInMonth(newDate.month, newDate.year);
+            newDate.month++;
+            if (newDate.month > 12) {
+                newDate.month = 1;
+                newDate.year++;
+            }
+        }
+
+        return newDate;
+    }
+
+    operator int() const {
+        int daysElapsed = day;
+        for (int m = 1; m < month; ++m) {
+            daysElapsed += daysInMonth(m, year);
+        }
+        return daysElapsed;
+    }
+
+    void print() const {
+        cout << day << "/" << month << "/" << year << endl;
+    }
+};
