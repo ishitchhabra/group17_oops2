@@ -24,3 +24,32 @@ private:
     }
 
 public:
+
+ Date(int d = 1, int m = 1, int y = 2000) : day(d), month(m), year(y) {}
+
+    bool operator<(const Date& other) const {
+        if (year < other.year) return true;
+        if (year == other.year && month < other.month) return true;
+        if (year == other.year && month == other.month && day < other.day) return true;
+        return false;
+    }
+
+    bool operator<=(const Date& other) const {
+        return *this < other || *this == other;
+    }
+
+    bool operator>(const Date& other) const {
+        return !(*this <= other);
+    }
+
+    bool operator>=(const Date& other) const {
+        return !(*this < other);
+    }
+
+    bool operator==(const Date& other) const {
+        return day == other.day && month == other.month && year == other.year;
+    }
+
+    bool operator!=(const Date& other) const {
+        return !(*this == other);
+    }
