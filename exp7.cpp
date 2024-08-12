@@ -56,3 +56,29 @@ void sortBooksByAuthor(Book books[], int n) {
     }
 }
 
+int main() {
+    int n;
+
+    cout << "Enter the number of books: ";
+    cin >> n;
+    cin.ignore(); 
+
+    Book* books = new Book[n];
+
+    for (int i = 0; i < n; ++i) {
+        std::cout << "\nEnter details for book " << i + 1 << ":\n";
+        inputBookDetails(books[i]);
+    }
+
+    sortBooksByAuthor(books, n);
+
+    // Output sorted book details
+    cout << "\nBooks sorted by author name:\n";
+    for (int i = 0; i < n; ++i) {
+        outputBookDetails(books[i]);
+    }
+
+    delete[] books;
+
+    return 0;
+}
